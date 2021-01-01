@@ -1,0 +1,39 @@
+<nav [class.sticky]="sticky" #stickyMenu id="menu">
+  <div class="container">
+    <div class="logo">
+      <a class="logo-btn">
+        <app-logo [colored]="menu" [scrolled]="navScrolled"></app-logo>
+      </a>
+    </div>
+    <div class="selection">
+      <button class="hamburger" (click)="toggle()" mat-icon-button color="primary"
+        [ngClass]="{white: !menu && !navScrolled }">
+        <ng-container *ngIf="!menu" fontSet="material-icons-outlined">menu</ng-container>
+        <ng-container *ngIf="menu" fontSet="material-icons-outlined">close</ng-container>
+      </button>
+    </div>
+    <div class="selection">
+      <div class="list" [ngClass]="{ oppened: menu }">
+        <div class="block">
+          <ul>
+            <li>
+              <button (click)="scrollScript('top')">Úvod</button>
+            </li>
+            <li>
+              <button (click)="scrollScript('portfolio')">Portfolio</button>
+            </li>
+            <li>
+              <button (click)="scrollScript('teamwork')">Spolupráce</button>
+            </li>
+            <li class="contact">
+              <button (click)="scrollScript('footer')">Kontakt</button>
+            </li>
+          </ul>
+        </div>
+        <div class="block contact-block">
+          text
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
